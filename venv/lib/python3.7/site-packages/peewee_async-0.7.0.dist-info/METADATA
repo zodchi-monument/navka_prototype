@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: peewee-async
+Version: 0.7.0
+Summary: Asynchronous interface for peewee ORM powered by asyncio.
+Home-page: https://github.com/05bit/peewee-async
+Author: Alexey Kinev
+Author-email: rudy@05bit.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: peewee (<4.0,>=3.5.0)
+Provides-Extra: aiomysql
+Requires-Dist: aiomysql (>=0.0.19) ; extra == 'aiomysql'
+Provides-Extra: aiopg
+Requires-Dist: aiopg (>=0.14.0) ; extra == 'aiopg'
+Provides-Extra: develop
+Requires-Dist: pylint ; extra == 'develop'
+Requires-Dist: wheel ; extra == 'develop'
+Requires-Dist: aiomysql ; extra == 'develop'
+Requires-Dist: aiopg ; extra == 'develop'
+Requires-Dist: psycopg2 ; extra == 'develop'
+
+Current state: **alpha**, yet API seems fine and mostly stable.
+
+Since version 0.6.0 peewee-async is compatible with peewee 3.5+ and
+support of Python 3.4 is dropped.
+
+* Works on Python 3.5+
+* Required peewee 3.5+
+* Has support for PostgreSQL via `aiopg`
+* Has support for MySQL via `aiomysql`
+* Single point for high-level async API
+* Drop-in replacement for sync code, sync will remain sync
+* Basic operations are supported
+* Transactions support is present, yet not heavily tested
+
+The source code is hosted on `GitHub`_.
+
+.. _GitHub: https://github.com/05bit/peewee-async
+
+

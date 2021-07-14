@@ -1,0 +1,124 @@
+<div class="content-body" style="height: 1125px">
+    <div class="container-fluid mt-1">
+
+        <!--Характеристика сессии-->
+        <div class="row">
+
+             <!--Список прыжков-->
+            <div class="col-lg-4 col-xl-3">
+                <div class="card">
+                    <div class="card-body" style="height:45vh">
+                        <h2 class="card-title">Прыжки в сессии</h2>
+                        <div class="table-responsive" >
+                            <table class="table header-border table-hover verticle-middle" id="jumpslist">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Тип прыжка</th>
+                                        <th scope="col">Длительность</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for i in range(0, jmps|length)%}
+                                    <tr>
+                                        <th>{{i}}</th>
+                                        <td>
+                                            {% if id|int==i|int %}
+                                            <a class="text-danger" href="http://127.0.0.1:5000/ssn/{{ssi}}/jmp/{{i}}?stream=false">Не определен</a>
+                                            {% else %}
+                                            <a href="http://127.0.0.1:5000/ssn/{{ssi}}/jmp/{{i}}?stream=false">Не определен</a>
+                                            {% endif %}
+                                        </td>
+                                            <td><span class="label gradient-1 btn-rounded">{{jmps[i]}} секунд</span>
+                                        </td>
+                                    </tr>
+                                    {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!--Область главного тренда-->
+            <div class="col-lg-4 col-xl-9">
+                <div class="card" style="height:45vh">
+                    <div class="card-body">
+                        <h4 class="card-title">Главный тренд (график модуля ускорения в единицах g) </h4>
+                        <canvas id="main-chart" style="position: relative; height:5vh; width:8vw"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Характеристика прыжков-->
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Длительность прыжка</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white", id="jd0">- мсек.</h2>
+                            <p class="text-white mb-0", id="jd1">Jan - March 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-2">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Средняя скорость вращения</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white", id="rd0">- °/сек </h2>
+                            <p class="text-white mb-0", id="rd1"> max - °/сек</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Количество оборотов</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white", id="rсd0">- оборотов</h2>
+                            <p class="text-white mb-0", id="rcd1"> - </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Описание прыжка</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Тип: Не определен</h2>
+                            <i class="fa fa-circle-o text-success  mr-2"> Success</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Тренды прыжков-->
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"> График модуля ускорения (g) </h4>
+                        <canvas id="acc-chart" style="position: relative; height:5vh; width:6vw"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"> График скорости вращения (rot. per sec.) </h4>
+                        <canvas id="gir-chart" style="position: relative; height:5vh; width:6vw"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
